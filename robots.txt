@@ -1,0 +1,4 @@
+User-Agent: *
+Allow: /
+
+Sitemap: https://shreyash-mokashi.github.io/sitemap.xml
