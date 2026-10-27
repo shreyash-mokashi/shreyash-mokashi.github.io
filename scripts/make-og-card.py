@@ -1,4 +1,11 @@
-"""Builds the 1200x630 social card and favicon.ico from the site's own tokens."""
+"""Builds the 1200x630 social card and favicon.ico from the site's own tokens.
+
+LinkedIn, WhatsApp and Slack all crop link previews to roughly 1200x630.
+A square portrait is cut off in every one of them, which is why this card
+exists instead of pointing og:image straight at the headshot.
+
+Needs Pillow.  Run:  pnpm og
+"""
 import sys
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
 

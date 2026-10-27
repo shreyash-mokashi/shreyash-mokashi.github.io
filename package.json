@@ -12,7 +12,8 @@
     "resume:docx": "node resume/build-docx.mjs",
     "resume:pdf": "google-chrome --headless --disable-gpu --no-pdf-header-footer --print-to-pdf=public/Shreyash-Mokashi-Resume.pdf resume/resume.html",
     "check:text": "node scripts/check-no-inline-text.mjs",
-    "verify": "pnpm typecheck && pnpm check:text && pnpm build"
+    "verify": "pnpm typecheck && pnpm check:text && pnpm build",
+    "og": "python3 scripts/make-og-card.py \"$HOME/Downloads/official image.png\" public"
   },
   "dependencies": {
     "next": "15.1.0",
