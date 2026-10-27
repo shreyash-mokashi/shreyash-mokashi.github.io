@@ -126,6 +126,18 @@ it is used. If you change a text colour, check the contrast still passes — the
 site currently scores 100 on accessibility and dim grey text is the easiest way
 to lose that.
 
+**Regenerate the social card.** `public/og-card.png` is the 1200x630 image
+LinkedIn and WhatsApp show when the link is shared. It is generated, not
+hand-made:
+
+```bash
+pnpm og     # needs Pillow (python3 -c "import PIL")
+```
+
+Edit `scripts/make-og-card.py` to change what it says. Point `og:image` at the
+headshot instead and every platform crops it badly, which is why the card
+exists.
+
 **Replace the photo.** Drop a square image in `public/` as `shreyash.webp` (and
 `shreyash.jpg` as the fallback). Keep it under about 100 KB; the current one is
 20 KB. The originals came from a 1.6 MB PNG — do not ship anything near that.
@@ -288,6 +300,7 @@ that way the GitHub Actions workflow becomes redundant and can be deleted.
 | Change any wording | Edit `src/content/profile.ts` |
 | Change a colour | Edit `:root` in `src/app/globals.css` |
 | Rebuild the résumé | `pnpm resume:pdf && pnpm resume:docx` |
+| Regenerate the social card | `pnpm og` |
 | Check before pushing | `pnpm verify` |
 | Deploy | `git push` — that is the deploy |
 | Watch the deploy | The repo's Actions tab |

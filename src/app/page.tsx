@@ -1,3 +1,4 @@
+import { skipLink } from '@/content/profile'
 import Nav from '@/components/Nav'
 import Hero from '@/components/Hero'
 import Work from '@/components/Work'
@@ -9,6 +10,9 @@ import Contact from '@/components/Contact'
 export default function Home() {
   return (
     <>
+      <a className="skipLink" href={skipLink.href}>
+        {skipLink.label}
+      </a>
       <Nav />
       <main>
         <Hero />

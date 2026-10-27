@@ -44,6 +44,15 @@ export const meta = {
   siteUrl: 'https://shreyash-mokashi.github.io',
 } as const
 
+export const notFound = {
+  code: '404',
+  title: 'That page does not exist',
+  body: 'The link may be out of date, or the address may have a typo in it. Everything on this site lives on one page.',
+  action: 'Back to the portfolio',
+}
+
+export const skipLink = { href: '#work', label: 'Skip to content' }
+
 export const nav = [
   { href: '#work', label: 'Work' },
   { href: '#experience', label: 'Experience' },
@@ -56,12 +65,7 @@ export const metrics: Metric[] = [
   {
     value: '1,000+',
     label: 'commits merged',
-    detail: 'across four production repositories since September 2025',
-  },
-  {
-    value: '60k+',
-    label: 'lines shipped',
-    detail: 'added across ~2,300 file changes, excluding merges',
+    detail: 'across three production repositories since 2025',
   },
   {
     value: '5',
@@ -69,9 +73,14 @@ export const metrics: Metric[] = [
     detail: 'hotel, flight, holiday, insurance and activities',
   },
   {
-    value: '1.5 yrs',
+    value: '16 months',
     label: 'in production code',
     detail: 'in codebases with 20+ contributors and 55,000+ commits',
+  },
+  {
+    value: 'UI → API',
+    label: 'owned end to end',
+    detail: 'search, details, booking and checkout, plus the server modules behind them',
   },
 ]
 
@@ -275,7 +284,7 @@ export const contact = {
   email: 'shreyashmokashi0268@gmail.com',
   phone: '+91 93703 14430',
   linkedin: 'https://www.linkedin.com/in/shreyash-mokashi-425163224/',
-  github: '',
+  github: 'https://github.com/shreyash-mokashi',
   resumeHref: '/Shreyash-Mokashi-Resume.pdf',
 }
 
@@ -293,8 +302,10 @@ const spell = (n: number) => COUNT_WORDS[n] ?? String(n)
 export const sections = {
   hero: {
     seeWork: 'See the work',
+    resume: 'Résumé',
     emailMe: 'Email me',
     linkedin: 'LinkedIn',
+    github: 'GitHub',
   },
   work: {
     label: 'Selected work',
@@ -314,13 +325,13 @@ export const sections = {
     title: 'How I work',
   },
   contact: {
-    headline: 'Looking for someone who ships the hard screens?',
-    resumeLabel: 'Download résumé',
+    headline: 'Want to talk about any of this?',
+    resumeLabel: 'Download résumé (PDF)',
   },
 }
 
 export const footer = {
-  note: 'Built with Next.js 15, React 19 and TypeScript. No UI text lives in a component — every word on this page comes from a single typed content file.',
+  note: 'Built with Next.js 15, React 19 and TypeScript, and deployed from its own repository. The source is public.',
   metricsNote:
     'Figures above are counted from commit history across the repositories I contribute to, excluding merge commits.',
 }

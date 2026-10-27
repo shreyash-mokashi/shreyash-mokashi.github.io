@@ -1,6 +1,6 @@
 .hero {
   position: relative;
-  padding-top: clamp(2.5rem, 1rem + 5vw, 5rem);
+  padding-top: clamp(1.25rem, 0.5rem + 3vw, 5rem);
   /* The following section brings its own top padding; adding more here
      opens a dead band between the metrics strip and the next heading. */
   padding-bottom: 0;
@@ -265,9 +265,11 @@
     grid-template-columns: 1fr;
     text-align: left;
   }
+  /* Name and role first on a phone. With the portrait above them the whole
+     first screenful on a 320px device was a photo and a location caption. */
   .portraitWrap {
-    order: -1;
     justify-self: start;
+    margin-top: 0.5rem;
   }
   .portrait {
     width: min(200px, 48vw);
