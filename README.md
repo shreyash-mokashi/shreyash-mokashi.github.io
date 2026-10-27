@@ -48,17 +48,30 @@ inline in a component — the same rule the production codebases enforce with a
 lint guard. To change copy, edit that one file; you never need to touch a
 component.
 
-Anything still unfilled is marked `TODO(shreyash)` in that file:
-
-- `contact.email` — a personal address, not the work one
-- `contact.github` — public profile URL, if there is one
-- `contact.phone` — optional
-- `contact.resumeHref` — put the PDF in `public/` and point at `/resume.pdf`
-- `education.items` — degree, institution, years
-
 Empty values are **omitted from the page**, not rendered as placeholders. A
-missing email means the "Email me" button and the email contact card simply do
-not appear — nothing on the page ever reads "TBD" to a recruiter.
+missing value means that button or card simply does not appear — nothing on the
+page ever reads "TBD" to a recruiter. `contact.github` is currently empty, so no
+GitHub card renders; fill it in and it appears.
+
+---
+
+## Resume
+
+Two formats, both generated from source so they cannot drift apart:
+
+| File | Source | Rebuild |
+|---|---|---|
+| `public/Shreyash-Mokashi-Resume.pdf` | `resume/resume.html` | `pnpm resume:pdf` |
+| `public/Shreyash-Mokashi-Resume.docx` | `resume/build-docx.mjs` | `pnpm resume:docx` |
+
+Both are written for **applicant tracking systems**: one column, no tables, no
+text boxes, no images, no icons, standard section headings, contact details as
+real body text rather than in a header, black on white, Arial. Verified by
+extracting the text back out of both files and checking it comes out in reading
+order.
+
+Edit the wording in `resume/resume.html`, mirror it in `resume/build-docx.mjs`,
+then rebuild both.
 
 ---
 

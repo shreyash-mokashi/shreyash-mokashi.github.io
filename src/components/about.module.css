@@ -1,13 +1,13 @@
 .split {
   display: grid;
   grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr);
+  gap: clamp(2rem, 1rem + 4vw, 4rem);
+  align-items: start;
 }
 
 /* No education block yet — don't reserve an empty column for it. */
 .split[data-aside='false'] {
   grid-template-columns: minmax(0, 1fr);
-  gap: clamp(2rem, 1rem + 4vw, 4rem);
-  align-items: start;
 }
 
 .main {

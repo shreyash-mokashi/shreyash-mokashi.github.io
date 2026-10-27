@@ -2,13 +2,15 @@
   "name": "shreyash-portfolio",
   "version": "1.0.0",
   "private": true,
-  "description": "Personal portfolio — Shreyash Mokashi, Software Engineer",
+  "description": "Personal portfolio \u2014 Shreyash Mokashi, Software Engineer",
   "scripts": {
     "dev": "next dev -p 4321",
     "build": "next build",
     "start": "next start -p 4321",
     "lint": "next lint",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "resume:docx": "node resume/build-docx.mjs",
+    "resume:pdf": "google-chrome --headless --disable-gpu --no-pdf-header-footer --print-to-pdf=public/Shreyash-Mokashi-Resume.pdf resume/resume.html"
   },
   "dependencies": {
     "next": "15.1.0",
@@ -19,6 +21,7 @@
     "@types/node": "22.10.2",
     "@types/react": "19.0.1",
     "@types/react-dom": "19.0.2",
-    "typescript": "5.7.2"
+    "typescript": "5.7.2",
+    "docx": "9.0.2"
   }
 }

@@ -72,7 +72,16 @@
 
 .channelValue {
   color: var(--text);
-  word-break: break-word;
+  /* Only break a long address when there is genuinely no room, and never
+     mid-word where a space would do. */
+  overflow-wrap: anywhere;
+}
+
+/* A 29-character email does not fit a phone-width card at body size. */
+@media (max-width: 520px) {
+  .channelValue {
+    font-size: var(--step--1);
+  }
 }
 
 .resume {

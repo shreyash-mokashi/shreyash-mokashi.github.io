@@ -32,7 +32,7 @@ export const meta = {
   name: 'Shreyash Mokashi',
   role: 'Software Engineer',
   tagline: 'Frontend engineer, travel & booking platforms',
-  location: 'Mumbai, India',
+  location: 'Pune, Maharashtra, India',
   // One honest sentence. No adjectives a reviewer can't verify.
   intro:
     'I build the screens people actually transact on — search, results, details, checkout and confirmation — for travel platforms that sell hotels, flights, holidays, insurance and activities.',
@@ -75,7 +75,7 @@ export const metrics: Metric[] = [
 export const about = {
   heading: 'About',
   paragraphs: [
-    'I joined Vernost in 2025 and have spent the time since inside large, long-lived travel booking codebases — the kind with a decade of history, twenty-plus contributors and real money moving through them.',
+    'I joined Vernost in June 2025 and have spent the time since inside large, long-lived travel booking codebases — the kind with a decade of history, twenty-plus contributors and real money moving through them.',
     'Most of my work sits on the revenue path: hotel search and results, property details, the booking form, fare breakdowns, payment-gateway charges, coupons and booking confirmation. These are the screens where a rendering bug costs a sale and a wrong total costs trust, so I have learned to treat edge states, loading behaviour and price arithmetic as the feature rather than an afterthought.',
     'I have worked across both generations of the platform: a mature Next.js 12 / React 18 JavaScript application serving five verticals, and a newer Next.js 15 / React 19 TypeScript monorepo built on pnpm and Turborepo with Vitest and Playwright coverage. Moving between them taught me what a codebase feels like when its conventions are enforced, and what it feels like when they are not.',
   ],
@@ -85,8 +85,8 @@ export const roles: Role[] = [
   {
     company: 'Vernost Tech Ventures',
     title: 'Software Engineer',
-    period: '2025 — Present',
-    location: 'Mumbai, India',
+    period: 'June 2025 — Present',
+    location: 'Pune, India',
     summary:
       'Frontend engineering across consumer travel booking and corporate travel products.',
     highlights: [
@@ -229,13 +229,13 @@ export const skills: SkillGroup[] = [
 
 export const education = {
   heading: 'Education',
-  // TODO(shreyash): confirm degree, institution and years.
   items: [
     {
-      qualification: 'Bachelor’s degree',
-      institution: 'To be confirmed',
-      period: '',
-      note: '',
+      qualification: 'Bachelor of Engineering, Computer Science',
+      institution:
+        'Shri Chhatrapati Shivajiraje College of Engineering, Bhor, Pune',
+      period: 'August 2020 — January 2024',
+      note: 'Rajgad Dnyanpeeth\u2019s \u00b7 Affiliated to Savitribai Phule Pune University (SPPU)',
     },
   ],
 }
@@ -244,12 +244,11 @@ export const contact = {
   heading: 'Get in touch',
   blurb:
     'Open to frontend and full-stack engineering roles. The fastest way to reach me is email.',
-  // TODO(shreyash): replace with a personal address — not the work one.
-  email: '',
-  phone: '',
+  email: 'shreyashmokashi0268@gmail.com',
+  phone: '+91 93703 14430',
   linkedin: 'https://www.linkedin.com/in/shreyash-mokashi-425163224/',
   github: '',
-  resumeHref: '',
+  resumeHref: '/Shreyash-Mokashi-Resume.pdf',
 }
 
 export const footer = {

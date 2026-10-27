@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Shreyash Mokashi — Software Engineer — Resume</title>
+<style>
+  /* ---------------------------------------------------------------
+     ATS-first resume.
+
+     Rules this file follows deliberately, because applicant tracking
+     systems parse badly otherwise:
+       - one single column, no tables, no text boxes, no floats
+       - no images, icons or ligature fonts; contact details are real text
+       - nothing important in a running header or footer
+       - standard section headings an ATS recognises by name
+       - black on white, standard font, selectable text
+     --------------------------------------------------------------- */
+  @page { size: A4; margin: 12mm 14mm; }
+
+  * { box-sizing: border-box; }
+
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10pt;
+    line-height: 1.34;
+    color: #000;
+    background: #fff;
+    margin: 0;
+  }
+
+  h1 {
+    font-size: 19pt;
+    margin: 0 0 2pt;
+    letter-spacing: 0.4pt;
+  }
+
+  .role {
+    font-size: 11pt;
+    font-weight: bold;
+    margin: 0 0 3pt;
+  }
+
+  .contact {
+    font-size: 9.2pt;
+    margin: 0 0 9pt;
+  }
+
+  h2 {
+    font-size: 10.5pt;
+    text-transform: uppercase;
+    letter-spacing: 0.6pt;
+    margin: 11pt 0 4pt;
+    padding-bottom: 2pt;
+    border-bottom: 1px solid #000;
+  }
+
+  p { margin: 0 0 4pt; }
+
+  ul { margin: 2pt 0 0; padding-left: 14pt; }
+
+  li { margin-bottom: 2.5pt; }
+
+  .jobline {
+    font-weight: bold;
+    margin: 0;
+  }
+
+  .jobmeta {
+    margin: 0 0 2pt;
+  }
+
+  .skills p { margin-bottom: 2.5pt; }
+
+  .label { font-weight: bold; }
+
+  .edu-degree { font-weight: bold; margin: 0; }
+  .edu-school { margin: 0; }
+  .edu-note { margin: 0; }
+</style>
+</head>
+<body>
+
+  <h1>Shreyash Mokashi</h1>
+  <p class="role">Software Engineer</p>
+  <p class="contact">
+    Pune, Maharashtra, India &nbsp;|&nbsp; +91 93703 14430 &nbsp;|&nbsp;
+    shreyashmokashi0268@gmail.com<br />
+    linkedin.com/in/shreyash-mokashi-425163224
+  </p>
+
+  <h2>Summary</h2>
+  <p>
+    Software Engineer with 1.5 years of experience building production travel booking
+    web applications in React and Next.js. Work spans the hotel, flight, holiday,
+    insurance and activities verticals, covering search, results, property details,
+    booking forms, fare breakdowns and checkout. Experienced in both a mature
+    Next.js 12 / React 18 JavaScript application and a modern Next.js 15 / React 19
+    TypeScript monorepo with unit and DOM test coverage.
+  </p>
+
+  <h2>Technical Skills</h2>
+  <div class="skills">
+    <p><span class="label">Languages:</span> JavaScript (ES2022), TypeScript, HTML5, CSS3</p>
+    <p><span class="label">Frameworks and Libraries:</span> React 18/19, Next.js 12-15, Node.js, Express.js, Tailwind CSS, Material UI, Bootstrap</p>
+    <p><span class="label">Testing:</span> Vitest, React Testing Library, Playwright</p>
+    <p><span class="label">Tools and Platforms:</span> Git, Bitbucket, Jira, pnpm, Turborepo, Docker, Google Maps Platform, SonarQube</p>
+    <p><span class="label">Practices:</span> REST API integration, responsive and mobile-first UI, CSS Modules and design tokens, code review, Agile / Scrum</p>
+  </div>
+
+  <h2>Professional Experience</h2>
+  <p class="jobline">Software Engineer &mdash; Vernost Tech Ventures Pvt. Ltd., Pune, India</p>
+  <p class="jobmeta">June 2025 &ndash; Present</p>
+  <ul>
+    <li>Delivered 1,000+ merged commits across four production repositories, adding over 60,000 lines across approximately 2,300 file changes.</li>
+    <li>Built the hotel search map view and the property nearby-places panel on the Google Maps JavaScript API, including a viewport-bounds utility covered by unit and DOM tests.</li>
+    <li>Developed the hotel booking page: guest and contact forms with validation, cancellation policy banner and timeline, and the pay-at-hotel price breakdown.</li>
+    <li>Maintained and extended shared fare and price-breakdown components reused across the hotel, flight, holiday and insurance verticals.</li>
+    <li>Integrated checkout mechanics including payment gateway charge handling, coupon validation, price recheck before payment and booking status polling.</li>
+    <li>Built corporate travel policy compliance screens with dynamic in-policy and out-of-policy evaluation, multi-level approver binding, and an email approve and discard flow.</li>
+    <li>Built the My Trips booking history page and the account profile section spanning all travel verticals.</li>
+    <li>Improved perceived image load time on hotel search results by removing a hard-coded one second placeholder delay and making the behaviour configurable per caller.</li>
+    <li>Worked in a TypeScript monorepo (Next.js 15, React 19, pnpm, Turborepo), writing typed view models with Vitest and Testing Library coverage alongside each feature.</li>
+    <li>Performed root cause analysis on production defects across UI, API integration and data flow, and verified fixes through functional and regression testing.</li>
+  </ul>
+
+  <h2>Education</h2>
+  <p class="edu-degree">Bachelor of Engineering, Computer Science &mdash; August 2020 to January 2024</p>
+  <p class="edu-school">Rajgad Dnyanpeeth&rsquo;s Shri Chhatrapati Shivajiraje College of Engineering, Bhor, Pune</p>
+  <p class="edu-note">Affiliated to Savitribai Phule Pune University (SPPU)</p>
+
+</body>
+</html>
