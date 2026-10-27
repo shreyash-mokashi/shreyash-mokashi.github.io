@@ -263,6 +263,24 @@ GitHub Pages treats directories starting with `_` as private and silently drops
 `_next/`, which is where all the CSS and JavaScript live. That empty file is the
 only thing stopping it — do not delete it.
 
+**The site shows your README instead of your site.** Repo → Settings → Pages →
+Build and deployment → Source must be **GitHub Actions**, not "Deploy from a
+branch".
+
+Branch-based Pages runs GitHub's own Jekyll builder on every push, alongside
+this workflow. Both publish to the same site and the one that finishes later
+wins, so the live site flips between the real build and a Jekyll rendering of
+README.md. The tell is **two Pages workflows in the Actions tab on one push**:
+
+```
+Deploy to GitHub Pages       success   <- yours
+pages build and deployment   success   <- Jekyll, should not be here
+```
+
+Both report green while the live site is wrong, which is what makes this
+confusing. When it happens every asset 404s too — the resume, the social card,
+robots.txt — because Jekyll never built them. Fix the setting, push again.
+
 **Link previews show no image.** `meta.siteUrl` in `profile.ts` must match the
 real domain. It builds the Open Graph image URL that LinkedIn and WhatsApp
 fetch. If you move to a custom domain, change it there.
