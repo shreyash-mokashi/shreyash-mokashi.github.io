@@ -13,6 +13,16 @@
   background: var(--surface);
   border: 1px solid var(--hairline);
   border-radius: var(--radius);
+  transition: border-color 0.3s var(--ease), background 0.3s var(--ease),
+    transform 0.3s var(--ease);
+}
+
+/* Matches the work cards. Without this the skills cards were the only
+   card-shaped things on the page that did not respond to a pointer. */
+.group:hover {
+  border-color: var(--accent-line);
+  background: var(--surface-raised);
+  transform: translateY(-3px);
 }
 
 /* The first group is the strongest claim — mark it. */
@@ -22,6 +32,14 @@
     180deg,
     rgba(110, 147, 255, 0.07),
     var(--surface) 55%
+  );
+}
+
+.group:first-child:hover {
+  background: linear-gradient(
+    180deg,
+    rgba(110, 147, 255, 0.12),
+    var(--surface-raised) 55%
   );
 }
 

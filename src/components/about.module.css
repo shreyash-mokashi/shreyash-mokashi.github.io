@@ -34,6 +34,12 @@
   border-radius: var(--radius);
   position: sticky;
   top: 6rem;
+  transition: border-color 0.3s var(--ease), background 0.3s var(--ease);
+}
+
+.aside:hover {
+  border-color: var(--accent-line);
+  background: var(--surface-raised);
 }
 
 .asideTitle {

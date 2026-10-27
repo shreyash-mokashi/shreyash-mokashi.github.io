@@ -125,7 +125,7 @@ const doc = new Document({
 
         heading('Professional Experience'),
         body(
-          text('Software Engineer — Vernost Tech Ventures Pvt. Ltd., Pune, India', {
+          text('Software Engineer — Vernost Tech Ventures Pvt. Ltd., Mumbai, India', {
             bold: true,
           }),
           { after: 20 },

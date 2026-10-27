@@ -98,7 +98,7 @@ export const roles: Role[] = [
     company: 'Vernost Tech Ventures',
     title: 'Software Engineer',
     period: 'June 2025 — Present',
-    location: 'Pune, India',
+    location: 'Mumbai, India',
     summary:
       'Full-stack engineering across consumer travel booking and corporate travel products — React and Next.js on the client, Node and TypeScript on the server.',
     highlights: [
