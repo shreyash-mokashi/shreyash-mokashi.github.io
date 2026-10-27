@@ -20,7 +20,7 @@ export default function Experience() {
                 <p className={styles.location}>{role.location}</p>
               </div>
 
-              <div className={styles.what}>
+              <div>
                 <h3 className={styles.title}>{role.title}</h3>
                 <p className={styles.company}>{role.company}</p>
                 <p className={styles.summary}>{role.summary}</p>

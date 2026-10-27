@@ -56,6 +56,9 @@ jobs:
       - name: No inline UI text in components
         run: pnpm check:text
 
+      - name: Every styles.* reference resolves
+        run: pnpm check:css
+
       - name: Build static export
         env:
           BASE_PATH: ''

@@ -18,7 +18,7 @@ export default function Hero() {
       <div className={styles.grid} aria-hidden="true" />
 
       <div className={`shell ${styles.inner}`}>
-        <div className={styles.copy}>
+        <div>
           {meta.availability ? (
             <p className={styles.availability}>
               <span className={styles.pulse} aria-hidden="true" />

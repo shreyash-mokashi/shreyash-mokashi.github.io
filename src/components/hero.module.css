@@ -178,6 +178,11 @@
 
 .portrait {
   position: relative;
+  /* The wrapper centres itself and centres its caption through text-align,
+     but this is a fixed-width block: text-align does nothing to it, so it
+     needs its own auto margins or it sits left inside a wrapper that is as
+     wide as the caption. */
+  margin-inline: auto;
   width: min(330px, 68vw);
   aspect-ratio: 1;
   border-radius: 50%;
@@ -266,16 +271,15 @@
     text-align: left;
   }
   /* Name and role first on a phone. With the portrait above them the whole
-     first screenful on a 320px device was a photo and a location caption. */
+     first screenful on a 320px device was a photo and a location caption.
+     The portrait itself stays centred: left-aligned under a full-width
+     column of text it read as misaligned rather than deliberate. */
   .portraitWrap {
-    justify-self: start;
+    justify-self: center;
     margin-top: 0.5rem;
   }
   .portrait {
     width: min(200px, 48vw);
-  }
-  .locationTag {
-    text-align: left;
   }
   .metrics {
     grid-template-columns: repeat(2, minmax(0, 1fr));

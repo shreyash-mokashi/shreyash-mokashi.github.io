@@ -49,7 +49,7 @@ export default function Nav() {
       <div className={`shell ${styles.inner}`}>
         <a href="#top" className={styles.brand}>
           <span className={styles.mark} aria-hidden="true" />
-          <span className={styles.brandName}>{meta.name}</span>
+          <span>{meta.name}</span>
         </a>
 
         <nav className={styles.links} aria-label="Sections">
