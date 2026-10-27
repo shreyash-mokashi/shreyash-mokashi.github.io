@@ -1,0 +1,64 @@
+# Builds the static site and publishes it to GitHub Pages on every push to main.
+#
+# One-time setup in the repo: Settings -> Pages -> Source = "GitHub Actions".
+#
+# If the repo is named <username>.github.io the site serves from the root and
+# BASE_PATH stays empty. For any other repo name, GitHub Pages serves it under
+# /<repo-name>/, so BASE_PATH below must be set to that path or every asset
+# 404s.
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+
+      - run: pnpm typecheck
+
+      - name: Build static export
+        # Empty for a <username>.github.io repo; set to /<repo-name> otherwise.
+        env:
+          BASE_PATH: ''
+        run: pnpm build
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: out
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
