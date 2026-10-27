@@ -200,11 +200,20 @@ server is more forgiving than the real thing.
 There is nothing to click. Pushing to `main` deploys.
 
 ```
-git push  →  GitHub Actions  →  install → typecheck → check:text → build
-          →  upload out/  →  GitHub Pages  →  live
+git push to main  →  GitHub Actions  →  install → typecheck → check:text → build
+                  →  force-push out/ to the gh-pages branch
+                  →  GitHub Pages serves gh-pages  →  live
 ```
 
 The workflow is `.github/workflows/deploy.yml`. It takes roughly 60–90 seconds.
+
+**`gh-pages` is generated.** It holds the built site and nothing else, and it
+is force-pushed on every deploy. Never commit to it by hand — your change will
+be gone the next time you push to `main`.
+
+**Pages settings this depends on:** Source = "Deploy from a branch", branch =
+`gh-pages`, folder = `/ (root)`. If someone points it back at `main`, GitHub
+renders README.md as the site (see *Things that will bite you*).
 
 ### Doing it
 
@@ -263,23 +272,21 @@ GitHub Pages treats directories starting with `_` as private and silently drops
 `_next/`, which is where all the CSS and JavaScript live. That empty file is the
 only thing stopping it — do not delete it.
 
-**The site shows your README instead of your site.** Repo → Settings → Pages →
-Build and deployment → Source must be **GitHub Actions**, not "Deploy from a
-branch".
+**The site shows your README instead of your site.** Settings → Pages → branch
+is pointing at `main`. It must be **`gh-pages`**, folder `/ (root)`.
 
-Branch-based Pages runs GitHub's own Jekyll builder on every push, alongside
-this workflow. Both publish to the same site and the one that finishes later
-wins, so the live site flips between the real build and a Jekyll rendering of
-README.md. The tell is **two Pages workflows in the Actions tab on one push**:
+GitHub runs its own Jekyll build on whatever branch Pages serves. Pointed at
+`main` it finds README.md and renders *that* as your site, and every asset
+404s — resume, social card, robots.txt — because Jekyll never built them.
+Pointed at `gh-pages` it finds a finished site with a `.nojekyll` marker and
+copies it verbatim, which is the arrangement this repo uses.
 
-```
-Deploy to GitHub Pages       success   <- yours
-pages build and deployment   success   <- Jekyll, should not be here
-```
-
-Both report green while the live site is wrong, which is what makes this
-confusing. When it happens every asset 404s too — the resume, the social card,
-robots.txt — because Jekyll never built them. Fix the setting, push again.
+This bit once already. The site was on branch-based Pages serving `main` while
+the workflow also published through `actions/deploy-pages`: two publishers,
+same site, later one wins. Both workflows reported success on every push while
+the live site flipped at random. **Two Pages workflows in the Actions tab for
+one push is the tell** — the Actions tab will not warn you, so check the live
+site, not the green tick.
 
 **Link previews show no image.** `meta.siteUrl` in `profile.ts` must match the
 real domain. It builds the Open Graph image URL that LinkedIn and WhatsApp

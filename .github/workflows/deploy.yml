@@ -1,11 +1,25 @@
-# Builds the static site and publishes it to GitHub Pages on every push to main.
+# Builds the static site and publishes it to the gh-pages branch.
 #
-# One-time setup in the repo: Settings -> Pages -> Source = "GitHub Actions".
+# Pages settings this expects:
+#   Settings -> Pages -> Source = "Deploy from a branch"
+#   Branch = gh-pages, folder = / (root)
 #
-# If the repo is named <username>.github.io the site serves from the root and
-# BASE_PATH stays empty. For any other repo name, GitHub Pages serves it under
-# /<repo-name>/, so BASE_PATH below must be set to that path or every asset
-# 404s.
+# Why gh-pages rather than the GitHub Actions Pages deployment: with a
+# branch-based Pages source, GitHub runs its own Jekyll build on every push to
+# that branch. When this workflow also published through actions/deploy-pages,
+# both wrote to the same site and whichever finished last won — so the live
+# site flipped between the real build and a Jekyll rendering of README.md,
+# while both workflows reported success.
+#
+# Publishing to gh-pages removes the race. Jekyll still runs, but it finds a
+# finished site with a .nojekyll marker at the root and copies it verbatim.
+# There is one publisher and nothing left to race.
+#
+# gh-pages is generated. Never commit to it by hand; it is force-pushed on
+# every deploy.
+#
+# BASE_PATH is empty because this is a <username>.github.io repo, served from
+# the domain root. For any other repo name it must be /<repo-name>.
 name: Deploy to GitHub Pages
 
 on:
@@ -14,16 +28,14 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write
 
 concurrency:
   group: pages
   cancel-in-progress: true
 
 jobs:
-  build:
+  build-and-publish:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -45,23 +57,30 @@ jobs:
         run: pnpm check:text
 
       - name: Build static export
-        # Empty for a <username>.github.io repo; set to /<repo-name> otherwise.
         env:
           BASE_PATH: ''
         run: pnpm build
 
-      - uses: actions/configure-pages@v5
+      - name: Publish to gh-pages
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
 
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: out
+          # Without this GitHub Pages drops the _next/ directory, because it
+          # treats directories starting with an underscore as private, and the
+          # site renders with no CSS or JavaScript.
+          touch out/.nojekyll
 
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - id: deployment
-        uses: actions/deploy-pages@v4
+          # Fail loudly rather than publishing an empty site.
+          test -f out/index.html
+
+          cd out
+          git init -q
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -q -m "Built site from ${GITHUB_SHA:0:7}"
+          git push --force -q \
+            "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" \
+            HEAD:gh-pages
