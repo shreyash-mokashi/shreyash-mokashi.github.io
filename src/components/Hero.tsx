@@ -10,12 +10,14 @@ export default function Hero() {
 
       <div className={`shell ${styles.inner}`}>
         <div className={styles.copy}>
-          <Reveal>
-            <p className={styles.availability}>
-              <span className={styles.pulse} aria-hidden="true" />
-              {meta.availability}
-            </p>
-          </Reveal>
+          {meta.availability ? (
+            <Reveal>
+              <p className={styles.availability}>
+                <span className={styles.pulse} aria-hidden="true" />
+                {meta.availability}
+              </p>
+            </Reveal>
+          ) : null}
 
           <Reveal delay={70}>
             <h1 className={styles.name}>{meta.name}</h1>

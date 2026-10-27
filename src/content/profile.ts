@@ -31,12 +31,14 @@ export type SkillGroup = { level: string; note: string; items: string[] }
 export const meta = {
   name: 'Shreyash Mokashi',
   role: 'Software Engineer',
-  tagline: 'Frontend engineer, travel & booking platforms',
+  tagline: 'Full-stack engineer, travel & booking platforms',
   location: 'Pune, Maharashtra, India',
   // One honest sentence. No adjectives a reviewer can't verify.
   intro:
-    'I build the screens people actually transact on — search, results, details, checkout and confirmation — for travel platforms that sell hotels, flights, holidays, insurance and activities.',
-  availability: 'Open to frontend and full-stack engineering roles',
+    'I build the screens people actually transact on — search, results, details, checkout and confirmation — and the server-side API layer behind them, for travel platforms that sell hotels, flights, holidays, insurance and activities.',
+  // Hidden for now. Restore this string to show the green availability pill
+  // again; an empty value renders no pill at all.
+  availability: '',
   /** Resolves the Open Graph image URL for link previews. Change this if the
    *  site moves to a custom domain. */
   siteUrl: 'https://shreyash-mokashi.github.io',
@@ -77,7 +79,7 @@ export const about = {
   heading: 'About',
   paragraphs: [
     'I joined Vernost in June 2025 and have spent the time since inside large, long-lived travel booking codebases — the kind with a decade of history, twenty-plus contributors and real money moving through them.',
-    'Most of my work sits on the revenue path: hotel search and results, property details, the booking form, fare breakdowns, payment-gateway charges, coupons and booking confirmation. These are the screens where a rendering bug costs a sale and a wrong total costs trust, so I have learned to treat edge states, loading behaviour and price arithmetic as the feature rather than an afterthought.',
+    'Most of my work sits on the revenue path, on both sides of it: hotel search and results, property details, the booking form, fare breakdowns, payment-gateway charges, coupons and booking confirmation on the client, and the Node and TypeScript API modules that feed them on the server. These are the screens where a rendering bug costs a sale and a wrong total costs trust, so I have learned to treat edge states, loading behaviour and price arithmetic as the feature rather than an afterthought.',
     'I have worked across both generations of the platform: a mature Next.js 12 / React 18 JavaScript application serving five verticals, and a newer Next.js 15 / React 19 TypeScript monorepo built on pnpm and Turborepo with Vitest and Playwright coverage. Moving between them taught me what a codebase feels like when its conventions are enforced, and what it feels like when they are not.',
   ],
 }
@@ -89,12 +91,13 @@ export const roles: Role[] = [
     period: 'June 2025 — Present',
     location: 'Pune, India',
     summary:
-      'Frontend engineering across consumer travel booking and corporate travel products.',
+      'Full-stack engineering across consumer travel booking and corporate travel products — React and Next.js on the client, Node and TypeScript on the server.',
     highlights: [
       'Ship customer-facing features across five travel verticals in a shared Next.js/React codebase, from Jira requirement through to production release.',
       'Own hotel search, property details, booking and confirmation screens end to end — layout, API integration, validation, loading and failure states.',
       'Build and maintain fare and price-breakdown components reused across hotel, flight, holiday and insurance — the most frequently revisited surface in my work.',
       'Integrate checkout mechanics: payment-gateway charge handling, coupon validation, price recheck before payment, and booking-status polling.',
+      'Write the server-side API modules behind those screens in Node and TypeScript: upstream REST calls, supplier payload mapping, auth, timeouts and error handling, each with its own tests.',
       'Work in a modern TypeScript monorepo (Next.js 15, React 19, pnpm, Turborepo) with typed view-models, unit tests and DOM tests alongside each feature.',
       'Debug production issues through root-cause analysis across UI, API integration and data flow, then verify fixes with functional and regression passes.',
     ],
@@ -131,6 +134,21 @@ export const projects: Project[] = [
     ],
     stack: ['Next.js 15', 'React 19', 'TypeScript', 'Vitest', 'Testing Library'],
     scale: 'Revenue-path surface',
+  },
+  {
+    id: 'api-layer',
+    title: 'Server-side API layer for hotel booking',
+    context: 'Node · TypeScript · 2026',
+    summary:
+      'Every screen above is fed by a server module that talks to the upstream travel API. No browser code calls a supplier directly.',
+    contributions: [
+      'Wrote the server modules for hotel booking, bookings history, detail and trip requests in Node and TypeScript — request shaping, upstream REST calls, and typed responses.',
+      'Built the mappers that turn supplier payloads into the shapes the UI consumes, so a renamed or missing upstream field fails in one place instead of across the pages.',
+      'Handled per-route auth, request timeouts and upstream error mapping, so a supplier failure becomes a known error state rather than a stack trace.',
+      'Covered the modules with their own tests against fixtures captured from real API responses.',
+    ],
+    stack: ['Node.js', 'TypeScript', 'REST APIs', 'Vitest'],
+    scale: 'Booking · bookings history · detail · trip requests',
   },
   {
     id: 'fare',
@@ -201,8 +219,9 @@ export const skills: SkillGroup[] = [
       'Next.js 12 → 15',
       'TypeScript',
       'JavaScript (ES2022)',
-      'CSS Modules & design tokens',
+      'Node.js (server routes & BFF)',
       'REST API integration',
+      'CSS Modules & design tokens',
       'Responsive & mobile-first UI',
       'Git / Bitbucket, PR workflow',
     ],
@@ -211,9 +230,10 @@ export const skills: SkillGroup[] = [
     level: 'Working knowledge',
     note: 'Used regularly on real features, with room to go deeper.',
     items: [
+      'Express.js',
+      'Server-side auth, timeouts & error mapping',
       'Vitest & Testing Library',
       'Playwright',
-      'Node.js & Express',
       'pnpm & Turborepo monorepos',
       'Google Maps Platform',
       'Payment gateway integration',
@@ -223,8 +243,15 @@ export const skills: SkillGroup[] = [
   },
   {
     level: 'Familiar',
-    note: 'Have worked with these, but would not claim depth.',
-    items: ['MongoDB', 'Docker', 'Kubernetes manifests', 'SonarQube', 'PWA / next-pwa'],
+    note: 'Have worked with these and can read and write them, but my production depth is in the two groups above.',
+    items: [
+      'MongoDB',
+      'SQL',
+      'Docker',
+      'Kubernetes manifests',
+      'SonarQube',
+      'PWA / next-pwa',
+    ],
   },
 ]
 
@@ -244,7 +271,7 @@ export const education = {
 export const contact = {
   heading: 'Get in touch',
   blurb:
-    'Open to frontend and full-stack engineering roles. The fastest way to reach me is email.',
+    'Happy to talk about frontend, backend or anything in between. The fastest way to reach me is email.',
   email: 'shreyashmokashi0268@gmail.com',
   phone: '+91 93703 14430',
   linkedin: 'https://www.linkedin.com/in/shreyash-mokashi-425163224/',

@@ -99,15 +99,19 @@ const doc = new Document({
         heading('Summary'),
         body(
           text(
-            'Software Engineer with 1.5 years of experience building production travel booking web applications in React and Next.js. Work spans the hotel, flight, holiday, insurance and activities verticals, covering search, results, property details, booking forms, fare breakdowns and checkout. Experienced in both a mature Next.js 12 / React 18 JavaScript application and a modern Next.js 15 / React 19 TypeScript monorepo with unit and DOM test coverage.',
+            'Full-stack Software Engineer with 1.5 years of experience building production travel booking web applications. Works across the stack: React, Next.js and TypeScript on the client, and Node.js API modules on the server that call upstream REST services, map supplier payloads and handle auth, timeouts and errors. Experience spans the hotel, flight, holiday, insurance and activities verticals, covering search, results, property details, booking forms, fare breakdowns and checkout, in both a mature Next.js 12 / React 18 JavaScript application and a modern Next.js 15 / React 19 TypeScript monorepo with unit and DOM test coverage.',
           ),
         ),
 
         heading('Technical Skills'),
         skill('Languages', 'JavaScript (ES2022), TypeScript, HTML5, CSS3'),
         skill(
-          'Frameworks and Libraries',
-          'React 18/19, Next.js 12-15, Node.js, Express.js, Tailwind CSS, Material UI, Bootstrap',
+          'Frontend',
+          'React 18/19, Next.js 12-15, Tailwind CSS, Material UI, Bootstrap, CSS Modules',
+        ),
+        skill(
+          'Backend and Data',
+          'Node.js, Express.js, REST API design and integration, MongoDB, SQL',
         ),
         skill('Testing', 'Vitest, React Testing Library, Playwright'),
         skill(
@@ -129,6 +133,9 @@ const doc = new Document({
         body(text('June 2025 – Present'), { after: 70 }),
         bullet(
           'Delivered 1,000+ merged commits across four production repositories, adding over 60,000 lines across approximately 2,300 file changes.',
+        ),
+        bullet(
+          'Wrote the server-side API modules behind the booking screens in Node.js and TypeScript, covering upstream REST calls, supplier payload mapping, per-route authentication, request timeouts and error handling, each with its own tests.',
         ),
         bullet(
           'Built the hotel search map view and the property nearby-places panel on the Google Maps JavaScript API, including a viewport-bounds utility covered by unit and DOM tests.',
