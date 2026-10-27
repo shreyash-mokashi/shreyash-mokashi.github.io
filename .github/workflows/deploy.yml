@@ -41,6 +41,9 @@ jobs:
 
       - run: pnpm typecheck
 
+      - name: No inline UI text in components
+        run: pnpm check:text
+
       - name: Build static export
         # Empty for a <username>.github.io repo; set to /<repo-name> otherwise.
         env:

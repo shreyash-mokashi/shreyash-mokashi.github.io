@@ -48,6 +48,14 @@ inline in a component — the same rule the production codebases enforce with a
 lint guard. To change copy, edit that one file; you never need to touch a
 component.
 
+`pnpm check:text` enforces this, and CI runs it on every push. The guard exists
+because the claim went stale once: the work section read "Six pieces" while
+rendering seven cards, because that sentence lived in `Work.tsx` where an edit
+to the content file could not reach it. The count is now derived from
+`projects.length`, so it cannot disagree with the list again.
+
+`pnpm verify` runs typecheck, the guard and the build together.
+
 Empty values are **omitted from the page**, not rendered as placeholders. A
 missing value means that button or card simply does not appear — nothing on the
 page ever reads "TBD" to a recruiter. `contact.github` is currently empty, so no

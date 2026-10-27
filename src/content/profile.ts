@@ -279,6 +279,46 @@ export const contact = {
   resumeHref: '/Shreyash-Mokashi-Resume.pdf',
 }
 
+/** Spelled-out counts, so the work lede can never disagree with the array. */
+const COUNT_WORDS = [
+  'No', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten',
+]
+const spell = (n: number) => COUNT_WORDS[n] ?? String(n)
+
+/**
+ * Section headings and button labels. These used to sit inline in the
+ * components, which made the colophon's claim untrue and let the work count
+ * drift out of step with the project list.
+ */
+export const sections = {
+  hero: {
+    seeWork: 'See the work',
+    emailMe: 'Email me',
+    linkedin: 'LinkedIn',
+  },
+  work: {
+    label: 'Selected work',
+    title: 'What I have actually shipped',
+    lede: `${spell(projects.length)} pieces of production work, described at the level of what I built rather than what the team delivered. Company code and client names stay out of it.`,
+  },
+  experience: {
+    label: 'Experience',
+    title: 'Where the work happened',
+  },
+  skills: {
+    label: 'Skills',
+    title: 'Sorted by how well I know them',
+    lede: 'Grouped honestly rather than alphabetically. If it is in the first group, ask me anything about it.',
+  },
+  about: {
+    title: 'How I work',
+  },
+  contact: {
+    headline: 'Looking for someone who ships the hard screens?',
+    resumeLabel: 'Download résumé',
+  },
+}
+
 export const footer = {
   note: 'Built with Next.js 15, React 19 and TypeScript. No UI text lives in a component — every word on this page comes from a single typed content file.',
   metricsNote:

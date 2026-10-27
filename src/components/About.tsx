@@ -1,4 +1,4 @@
-import { about, education } from '@/content/profile'
+import { about, education, sections } from '@/content/profile'
 import Reveal from './Reveal'
 import styles from './about.module.css'
 
@@ -15,7 +15,7 @@ export default function About() {
         <div className={styles.split} data-aside={confirmed.length > 0}>
           <Reveal className={styles.main}>
             <p className="sectionLabel">{about.heading}</p>
-            <h2 className="sectionTitle">How I work</h2>
+            <h2 className="sectionTitle">{sections.about.title}</h2>
             <div className={styles.prose}>
               {about.paragraphs.map((p) => (
                 <p key={p.slice(0, 40)}>{p}</p>

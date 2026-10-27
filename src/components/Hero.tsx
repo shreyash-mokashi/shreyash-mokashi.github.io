@@ -1,4 +1,4 @@
-import { contact, meta, metrics, footer } from '@/content/profile'
+import { contact, meta, metrics, footer, sections } from '@/content/profile'
 import Reveal from './Reveal'
 import styles from './hero.module.css'
 
@@ -40,11 +40,11 @@ export default function Hero() {
           <Reveal delay={280}>
             <div className={styles.actions}>
               <a className={styles.primary} href="#work">
-                See the work
+                {sections.hero.seeWork}
               </a>
               {contact.email ? (
                 <a className={styles.secondary} href={`mailto:${contact.email}`}>
-                  Email me
+                  {sections.hero.emailMe}
                 </a>
               ) : null}
               <a
@@ -53,7 +53,7 @@ export default function Hero() {
                 target="_blank"
                 rel="noreferrer noopener"
               >
-                LinkedIn
+                {sections.hero.linkedin}
                 <span className={styles.arrow} aria-hidden="true">
                   ↗
                 </span>

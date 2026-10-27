@@ -1,4 +1,4 @@
-import { contact, footer, meta } from '@/content/profile'
+import { contact, footer, meta, sections } from '@/content/profile'
 import Reveal from './Reveal'
 import styles from './contact.module.css'
 
@@ -39,9 +39,7 @@ export default function Contact() {
           <div className={styles.glow} aria-hidden="true" />
           <div className={styles.content}>
             <p className="sectionLabel">{contact.heading}</p>
-            <h2 className={styles.headline}>
-              Looking for someone who ships the hard screens?
-            </h2>
+            <h2 className={styles.headline}>{sections.contact.headline}</h2>
             <p className={styles.blurb}>{contact.blurb}</p>
 
             <ul className={styles.channels}>
@@ -62,7 +60,7 @@ export default function Contact() {
 
             {contact.resumeHref ? (
               <a className={styles.resume} href={contact.resumeHref} download>
-                Download résumé
+                {sections.contact.resumeLabel}
               </a>
             ) : null}
           </div>

@@ -1,4 +1,4 @@
-import { roles } from '@/content/profile'
+import { roles, sections } from '@/content/profile'
 import Reveal from './Reveal'
 import styles from './experience.module.css'
 
@@ -7,8 +7,8 @@ export default function Experience() {
     <section id="experience" className="section">
       <div className="shell">
         <Reveal>
-          <p className="sectionLabel">Experience</p>
-          <h2 className="sectionTitle">Where the work happened</h2>
+          <p className="sectionLabel">{sections.experience.label}</p>
+          <h2 className="sectionTitle">{sections.experience.title}</h2>
         </Reveal>
 
         <div className={styles.timeline}>

@@ -1,4 +1,4 @@
-import { projects } from '@/content/profile'
+import { projects, sections } from '@/content/profile'
 import Reveal from './Reveal'
 import styles from './work.module.css'
 
@@ -7,13 +7,9 @@ export default function Work() {
     <section id="work" className="section">
       <div className="shell">
         <Reveal>
-          <p className="sectionLabel">Selected work</p>
-          <h2 className="sectionTitle">What I have actually shipped</h2>
-          <p className="lede">
-            Six pieces of production work, described at the level of what I built
-            rather than what the team delivered. Company code and client names stay
-            out of it.
-          </p>
+          <p className="sectionLabel">{sections.work.label}</p>
+          <h2 className="sectionTitle">{sections.work.title}</h2>
+          <p className="lede">{sections.work.lede}</p>
         </Reveal>
 
         <ol className={styles.list}>

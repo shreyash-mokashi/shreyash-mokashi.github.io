@@ -10,7 +10,9 @@
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
     "resume:docx": "node resume/build-docx.mjs",
-    "resume:pdf": "google-chrome --headless --disable-gpu --no-pdf-header-footer --print-to-pdf=public/Shreyash-Mokashi-Resume.pdf resume/resume.html"
+    "resume:pdf": "google-chrome --headless --disable-gpu --no-pdf-header-footer --print-to-pdf=public/Shreyash-Mokashi-Resume.pdf resume/resume.html",
+    "check:text": "node scripts/check-no-inline-text.mjs",
+    "verify": "pnpm typecheck && pnpm check:text && pnpm build"
   },
   "dependencies": {
     "next": "15.1.0",

@@ -1,4 +1,4 @@
-import { skills } from '@/content/profile'
+import { skills, sections } from '@/content/profile'
 import Reveal from './Reveal'
 import styles from './skills.module.css'
 
@@ -7,12 +7,9 @@ export default function Skills() {
     <section id="skills" className="section">
       <div className="shell">
         <Reveal>
-          <p className="sectionLabel">Skills</p>
-          <h2 className="sectionTitle">Sorted by how well I know them</h2>
-          <p className="lede">
-            Grouped honestly rather than alphabetically. If it is in the first
-            group, ask me anything about it.
-          </p>
+          <p className="sectionLabel">{sections.skills.label}</p>
+          <h2 className="sectionTitle">{sections.skills.title}</h2>
+          <p className="lede">{sections.skills.lede}</p>
         </Reveal>
 
         <div className={styles.groups}>
