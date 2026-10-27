@@ -5,6 +5,10 @@ Personal portfolio site. Next.js 15, React 19, TypeScript, static export.
 Deliberately the same stack as the production work it describes: anyone who looks
 at the repo sees the claim and the evidence in one place.
 
+> **Changing something?** [MAINTENANCE.md](MAINTENANCE.md) is the runbook — where
+> each piece of content lives, how to edit it, how to rebuild the résumé, and how
+> deployment works end to end, including what to do when a deploy fails.
+
 ---
 
 ## Run it
