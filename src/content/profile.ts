@@ -37,8 +37,9 @@ export const meta = {
   intro:
     'I build the screens people actually transact on — search, results, details, checkout and confirmation — for travel platforms that sell hotels, flights, holidays, insurance and activities.',
   availability: 'Open to frontend and full-stack engineering roles',
-  /** Change this to the real domain at deploy time — it resolves OG image URLs. */
-  siteUrl: 'https://shreyashmokashi.com',
+  /** Resolves the Open Graph image URL for link previews. Change this if the
+   *  site moves to a custom domain. */
+  siteUrl: 'https://shreyash-mokashi.github.io',
 } as const
 
 export const nav = [
