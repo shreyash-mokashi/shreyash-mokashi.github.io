@@ -1,0 +1,122 @@
+.list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.1rem;
+  margin-top: 3rem;
+  align-items: start;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.7rem 1.6rem;
+  background: var(--surface);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius);
+  transition: border-color 0.3s var(--ease), background 0.3s var(--ease),
+    transform 0.3s var(--ease);
+}
+
+.card:hover {
+  border-color: var(--accent-line);
+  background: var(--surface-raised);
+  transform: translateY(-3px);
+}
+
+.head {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.index {
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  color: var(--accent);
+  padding-top: 0.3rem;
+  flex: none;
+  letter-spacing: 0.05em;
+}
+
+.title {
+  font-size: var(--step-2);
+  letter-spacing: -0.03em;
+  margin-bottom: 0.35rem;
+}
+
+.context {
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  color: var(--text-dim);
+  letter-spacing: 0.03em;
+}
+
+.summary {
+  color: var(--text-muted);
+  line-height: 1.62;
+}
+
+.contributions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.contributions li {
+  position: relative;
+  padding-left: 1.3rem;
+  font-size: var(--step--1);
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+/* Small rule instead of a bullet — quieter at this density. */
+.contributions li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.68em;
+  width: 11px;
+  height: 1px;
+  background: var(--accent);
+  opacity: 0.6;
+}
+
+.foot {
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid var(--hairline);
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.stack li {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.03em;
+  color: var(--text-muted);
+  border: 1px solid var(--hairline);
+  background: rgba(255, 255, 255, 0.025);
+  padding: 0.3rem 0.6rem;
+  border-radius: 999px;
+}
+
+.scale {
+  font-size: var(--step--1);
+  color: var(--text-dim);
+}
+
+@media (max-width: 860px) {
+  .list {
+    grid-template-columns: 1fr;
+  }
+}

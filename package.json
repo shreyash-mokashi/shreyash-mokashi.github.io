@@ -1,0 +1,24 @@
+{
+  "name": "shreyash-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Personal portfolio — Shreyash Mokashi, Software Engineer",
+  "scripts": {
+    "dev": "next dev -p 4321",
+    "build": "next build",
+    "start": "next start -p 4321",
+    "lint": "next lint",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "next": "15.1.0",
+    "react": "19.0.0",
+    "react-dom": "19.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "22.10.2",
+    "@types/react": "19.0.1",
+    "@types/react-dom": "19.0.2",
+    "typescript": "5.7.2"
+  }
+}

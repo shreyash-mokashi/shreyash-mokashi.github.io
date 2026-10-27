@@ -1,0 +1,64 @@
+.groups {
+  margin-top: 3rem;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.1rem;
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  padding: 1.6rem 1.5rem;
+  background: var(--surface);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius);
+}
+
+/* The first group is the strongest claim — mark it. */
+.group:first-child {
+  border-color: var(--accent-line);
+  background: linear-gradient(
+    180deg,
+    rgba(110, 147, 255, 0.07),
+    var(--surface) 55%
+  );
+}
+
+.groupHead {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.level {
+  font-size: var(--step-1);
+  letter-spacing: -0.02em;
+}
+
+.note {
+  font-size: var(--step--1);
+  color: var(--text-dim);
+  line-height: 1.55;
+}
+
+.items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.items li {
+  font-size: var(--step--1);
+  color: var(--text-muted);
+  border: 1px solid var(--hairline);
+  background: rgba(255, 255, 255, 0.03);
+  padding: 0.38rem 0.7rem;
+  border-radius: 999px;
+}
+
+@media (max-width: 860px) {
+  .groups {
+    grid-template-columns: 1fr;
+  }
+}
